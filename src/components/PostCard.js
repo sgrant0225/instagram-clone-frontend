@@ -4,24 +4,26 @@ import React from 'react'
 import '../Post.css';
 import {  Avatar } from '@mui/material';
 
-function Post() {
+ //const renderPosts = this.props.posts.map((post) => <Post key={post.id} image={post.image} caption={post.caption} />)
+
+function PostCard({image, caption, username}) {
     return (
         <div className="post">
           <div className="post_header">
             <Avatar 
                className="post_avatar"
-               alt="Sharnell"
+               alt={username}
                src="/static/images/avatar/1.jpg"
             />
              {/* header -> avatar + user with the username */} 
-            <h3>Username</h3>
+            <h3>{username}</h3>
             </div>
-            <img className="post_image" src="https://www.freecodecamp.org/news/content/images/2021/06/Ekran-Resmi-2019-11-18-18.08.13.png" alt=""/>
-            {/* image */}
-            <h4 className="post_text"><strong>code_nellz</strong> For my final project I'm  building an instagram clone using React Redux </h4>
+            <img className="post_image" src={image} alt=""/>
+            
+            <h4 className="post_text"><strong>{username}</strong> { caption } </h4>
             {/* username + caption  */}
         </div>
     )
 }
 
-export default Post
+export default PostCard;

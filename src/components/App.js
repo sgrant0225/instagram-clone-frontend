@@ -1,6 +1,7 @@
 import React from 'react' 
 import SignUpForm from './SignUpForm';
-import Post from './Post';
+import PostFeed from '../container/PostFeed';
+import { Switch, Route } from 'react-router-dom'
 
 const App = () => {
     return(
@@ -12,9 +13,8 @@ const App = () => {
             alt="" 
           />
         </div>
-           <Post />
-           <Post />
-           <Post />
+          <PostFeed />
+           
         </div>
     )
 }
