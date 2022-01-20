@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class SignUpForm extends Component {
+    class SignUpForm extends Component {
 
     state = {
         username: "",
@@ -68,7 +68,7 @@ class SignUpForm extends Component {
        )
    }
     
-    
-}
+} 
+
 
 export default SignUpForm;

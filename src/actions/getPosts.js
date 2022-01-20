@@ -4,3 +4,4 @@ export const getPosts = () => {
     .then(res => res.json())
     .then(posts => dispatch({ type: 'GET_POSTS', payload: posts}))
 }
+

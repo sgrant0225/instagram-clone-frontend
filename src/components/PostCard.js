@@ -16,7 +16,7 @@ function PostCard({image, caption, username}) {
                src="/static/images/avatar/1.jpg"
             />
              {/* header -> avatar + user with the username */} 
-            <h3>{username}</h3>
+           <h3>{username}</h3>
             </div>
             <img className="post_image" src={image} alt=""/>
             

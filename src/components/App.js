@@ -1,21 +1,19 @@
 import React from 'react' 
-import SignUpForm from './SignUpForm';
-import PostFeed from '../container/PostFeed';
+//import { Suspense } from 'react';
+//import PostFeed from '../container/PostFeed';
 import { Switch, Route } from 'react-router-dom'
+import LoginPage from './LoginPage';
 
 const App = () => {
     return(
-     <div className="app">
-       <div className="app_header">
-          <img 
-            className="app_headerImage"
-            src="https://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png" 
-            alt="" 
-          />
-        </div>
-          <PostFeed />
-           
-        </div>
+     
+       <Switch>
+         <Route path="/login" ><LoginPage /> </Route>
+        </Switch>
+     
+          
+         
+      
     )
 }
 
