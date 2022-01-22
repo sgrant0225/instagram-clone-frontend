@@ -3,24 +3,26 @@
 import React from 'react'
 import '../Post.css';
 import {  Avatar } from '@mui/material';
+import Header from './Header'
+ 
 
- //const renderPosts = this.props.posts.map((post) => <Post key={post.id} image={post.image} caption={post.caption} />)
-
-function PostCard({image, caption, username}) {
+function PostCard({image, caption}) {
+  
     return (
+    
         <div className="post">
           <div className="post_header">
             <Avatar 
                className="post_avatar"
-               alt={username}
+               alt=""
                src="/static/images/avatar/1.jpg"
             />
              {/* header -> avatar + user with the username */} 
-           <h3>{username}</h3>
+           <h3>Name</h3>
             </div>
             <img className="post_image" src={image} alt=""/>
             
-            <h4 className="post_text"><strong>{username}</strong> { caption } </h4>
+            <h4 className="post_text"><strong>Name</strong> { caption } </h4>
             {/* username + caption  */}
         </div>
     )

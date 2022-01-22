@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import { getPosts } from '../actions/getPosts';
 //import { useEffect } from 'react'
 import PostCard from '../components/PostCard'
-   
+ import Header from '../components/Header'
 
 // function PostFeed({getPosts, posts}) {
     
@@ -31,12 +31,13 @@ class PostFeed extends Component {
     //     this.props.getPosts()
     // }
       render() {
-        //debugger
+        
         console.log(this.props.posts)
-        const renderPosts = this.props.posts.posts.map((post) => <PostCard key={post.id} image={post.image} caption={post.caption} username={post.user.username} />)
+        const renderPosts = this.props.posts.posts.map((post) => <PostCard key={post.id} image={post.image} caption={post.caption}  />)
        return (
         <div> 
              <h4>
+               <Header />
                  {renderPosts}
              </h4>
         </div>
