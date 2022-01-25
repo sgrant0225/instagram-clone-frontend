@@ -22,7 +22,7 @@ function SignUpForm(props){
   
     const handleSubmit = (e) => {
         e.preventDefault()
-        props.submitSignup({ email, username, password })
+        props.submitSignup({ email, username, password, bio, photo })
         history.push("/posts")
         
     }

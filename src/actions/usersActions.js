@@ -1,59 +1,50 @@
 
 
-
-
-// export const getUsers = () => {
-//     return dispatch => fetch("http://localhost:3000/users")
-//       .then(res => res.json())
-//       .then(posts => dispatch({ type: 'FETCH_USERS', user: payload: posts}))
-//   }
-
 export const submitSignup = (user) => {
     return dispatch => fetch("http://127.0.0.1:3000/signup", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(user)
-     })
-     .then(response => {
-        if (response.ok) {
-            response.json()
-            .then(response => { 
-                  dispatch({type: "SET_USER", payload: response.user}) 
-            });
-        } else {
-            response.json()
-            .then(response => alert(response.errors))
-        }
-     })
+    method: 'POST',
+    headers: {
+         'Content-Type': 'application/json',
+     },
+     body: JSON.stringify(user),
+  }) 
+  .then(res => res.json())
+  .then(response => {
+      localStorage.token = response.token
+      dispatch({type: "SET_USER", payload: response.user })
+  })
 
 }
 
 
 export const submitLogin = (user) => {
     console.log(user)
-     return dispatch => fetch("http://localhost:3000/login", 
-     {method: 'POST',
+     return dispatch => fetch("http://localhost:3000/login", { 
+     method: 'POST',
      headers: {
          'Content-Type': 'application/json',
      },
      body: JSON.stringify(user),
   }) 
-  .then((response) => {
-      if (response.ok) {
-          response.json()
-          .then(response => { 
-                dispatch({type: "SET_USER", payload: response.user}) 
-          });
-      } else {
-          response.json()
-          .then(response => alert(response.errors))
-      }
-   })
+  .then(res => res.json())
+  .then(response => {
+      localStorage.token = response.token
+      dispatch({type: "SET_USER", payload: response.user })
+  })
 }
 
-
+export const autoLogin = () => {
+    return dispatch => fetch("http://localhost:3000/me", {
+      headers: {
+          'Authorization': localStorage.token
+      }  
+    })
+    .then(res => res.json())
+    .then(response => {
+        localStorage.token = response.token
+        dispatch({type: "SET_USER", payload: response.user})
+    })
+}
 
 
 

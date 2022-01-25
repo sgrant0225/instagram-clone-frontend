@@ -1,23 +1,27 @@
 
 
-const initialUser = {    
-    username: "",
-    password: "",
-    bio: "",
-    photo: "",
-    id: null
-}
+// const initialUser = {    
+//     username: "",
+//     password: "",
+//     bio: "",
+//     photo: "",
+//     id: null
+// }
 const initialState = {
-    user: initialUser
+    users: {
+        username: ""
+    } 
     
 }
 
 export const usersReducer = (state=initialState, action) => {
-    switch(action.type){
-        case 'FETCH_USERS':
-            return {...state, user: action.payload}
+    console.log(action)
+    switch(action.type)
+   {
+        // case 'FETCH_USERS':
+        //     return {...state, user: action.payload}
         case 'SET_USER':
-            return {...state, user: action.payload}        
+            return {...state, users: action.payload}        
             default:
                 return state
     }

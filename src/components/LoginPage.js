@@ -8,7 +8,6 @@ function LoginPage(props){
   
   
   const history = useHistory();
-  //const [email, setEmail] = useState("")
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("") 
   const [error, setError] = useState("") 
@@ -29,7 +28,7 @@ function LoginPage(props){
       <div className="login"> 
        <div className='image_column'>
         <img className='login_headerImage' 
-               src='https://lh3.googleusercontent.com/XohGPm5fk6sIZM9qGNiGyv-PRHziBK9hz-sNWfTYDr4KiHYSW4YZ3z5NtnsDOn2zDEGFHJwvC4XGW-Y5RqnI50ZMIgSwlYo3uYX7sZ5_'
+               src="/images/iphone-with-profile.jpg"
                alt="" 
            />
         </div>

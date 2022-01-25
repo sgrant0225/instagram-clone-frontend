@@ -4,28 +4,31 @@ import { connect } from 'react-redux'
 import PostFeed from '../container/PostFeed';
 import { Switch, Route } from 'react-router-dom'
 import LoginPage from './LoginPage';
-import PostCard from './PostCard';
 import SignUpForm from './SignUpForm';
+import ProfilePage from './ProfilePage';
+import { autoLogin } from '../actions/usersActions'
 
 
-const App = (user) => {
-  console.log(user)
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [currentUser, setCurrentUser] = useState(null);
-   
-//   useEffect(() => )
-    
+
+const App = ({user, autoLogin}) => {
+  useEffect(() => localStorage.token && autoLogin(), [autoLogin])
+  console.log(user.users.username)
+  
     return (
-       
-       <Switch>
-         <Route path="/login" ><LoginPage /> </Route>
-         <Route path='/signup'><SignUpForm /></Route>
+      <>
+      { user.users.username ?
+      <Switch>
          <Route path='/posts'><PostFeed /></Route>
-        </Switch> 
-    )
-    
+         <Route path="/profile"><ProfilePage /></Route>
+      </Switch> :
+      <LoginPage />
+     }
+     </>  
+    );
+  
 }
 
-const mapStateToProps = (state) => ({user: state.user})
+const mapStateToProps = (state) => ({user: state.users})
+ //const mapStateToProps = (state) => (console.log(state.users))
 
-export default connect(mapStateToProps, null )(App);
+export default connect(mapStateToProps, { autoLogin } )(App);
