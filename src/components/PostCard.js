@@ -3,10 +3,10 @@
 import React from 'react'
 import '../Post.css';
 import {  Avatar } from '@mui/material';
-import Header from './Header'
+
  
 
-function PostCard({image, caption}) {
+function PostCard({image, caption, username, id}) {
   
     return (
     
@@ -18,14 +18,16 @@ function PostCard({image, caption}) {
                src="/static/images/avatar/1.jpg"
             />
              {/* header -> avatar + user with the username */} 
-           <h3>Name</h3>
+           <h3>{username}</h3>
             </div>
             <img className="post_image" src={image} alt=""/>
             
-            <h4 className="post_text"><strong>Name</strong> { caption } </h4>
+            <h4 className="post_text"><strong>{username}</strong> { caption } </h4>
             {/* username + caption  */}
         </div>
     )
 }
+
+
 
 export default PostCard;

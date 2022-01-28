@@ -32,8 +32,8 @@ class PostFeed extends Component {
     // }
       render() {
         
-        console.log(this.props.posts)
-        const renderPosts = this.props.posts.posts.map((post) => <PostCard key={post.id} image={post.image} caption={post.caption}  />)
+        console.log(this.props)
+        const renderPosts = this.props.posts.posts.map((post) => <PostCard key={post.id} image={post.image} caption={post.caption} username={post.user.username} user_id={post.user.id} />)
        return (
         <div> 
              <h4>
@@ -46,6 +46,15 @@ class PostFeed extends Component {
     
 }
 
-const mapStateToProps = (state) => ({posts: state.posts})
+// posts.map(({id, post}) => (
+//   <Post user={user} key={id} postId={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl}/>
+// ))
 
-export default connect(mapStateToProps, { getPosts })(PostFeed);
+
+const mapStateToProps = (state) => {
+  return {
+    posts: state.posts
+    
+  }
+}
+export default connect(mapStateToProps, { getPosts} )(PostFeed);

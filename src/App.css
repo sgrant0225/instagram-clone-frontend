@@ -14,11 +14,28 @@
     padding: 20px;
     border-bottom: 1px solid lightgray;
     object-fit: contain;
+    display: flex;
+    justify-content: space-between;
 }
 
 .app_headerImage{
     max-width: 100px;
 }
+
+.navigation_icons{
+  padding-right: 50px;
+}
+.nav_row{
+  justify-content: space-evenly;
+  
+}
+
+.app_createPost{
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
 
 /* .login{
     justify-content: center;

@@ -1,4 +1,9 @@
 
+export const getUsers = () => {
+    return dispatch => fetch("http://localhost:3000/users")
+    .then(res => res.json())
+    .then(users => dispatch({ type: 'GET_USERS', payload: users}))
+}
 
 export const submitSignup = (user) => {
     return dispatch => fetch("http://127.0.0.1:3000/signup", {
@@ -46,6 +51,12 @@ export const autoLogin = () => {
     })
 }
 
+export const logout = () => {
+    return dispatch => {
+        localStorage.clear()
+        dispatch({type: "LOGOUT"})
+    }
+}
 
 
 
