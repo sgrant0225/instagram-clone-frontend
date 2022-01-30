@@ -1,7 +1,10 @@
 
 
 const initialUser = {    
-    username: ""
+    username: "",
+    email: "",
+    bio: "",
+    id: null
 }
 const initialState = {
     user: initialUser

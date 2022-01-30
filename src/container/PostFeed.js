@@ -4,7 +4,7 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getPosts } from '../actions/getPosts';
+import { getPosts } from '../actions/postActions';
 //import { useEffect } from 'react'
 import PostCard from '../components/PostCard'
  import Header from '../components/Header'

@@ -6,7 +6,7 @@ import {  Avatar } from '@mui/material';
 
  
 
-function PostCard({image, caption, username, id}) {
+function PostCard({image, caption, username}) {
   
     return (
     
@@ -17,13 +17,10 @@ function PostCard({image, caption, username, id}) {
                alt=""
                src="/static/images/avatar/1.jpg"
             />
-             {/* header -> avatar + user with the username */} 
-           <h3>{username}</h3>
-            </div>
-            <img className="post_image" src={image} alt=""/>
-            
-            <h4 className="post_text"><strong>{username}</strong> { caption } </h4>
-            {/* username + caption  */}
+              <h3>{username}</h3>
+           </div>
+             <img className="post_image" src={image} alt=""/>
+             <h4 className="post_text"><strong>{username}</strong> { caption } </h4>
         </div>
     )
 }

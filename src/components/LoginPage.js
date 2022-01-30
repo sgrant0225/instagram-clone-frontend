@@ -28,7 +28,7 @@ function LoginPage(props){
       <div className="login"> 
        <div className='image_column'>
         <img className='login_headerImage' 
-               src="/images/iphone-with-profile.jpg"
+               src='https://cdn.pixabay.com/photo/2016/08/09/17/52/instagram-1581266_1280.jpg'
                alt="" 
            />
         </div>
@@ -57,9 +57,10 @@ function LoginPage(props){
 
    <div className="sub-content">
     <div className="s-part">
-      Don't have an account? <Link to="/signup"> 
+      Don't have an account? 
+      <Link to="/signup"> 
       Sign up 
-      </Link>
+     </Link>
     </div>
    </div> 
             

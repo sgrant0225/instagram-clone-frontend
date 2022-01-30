@@ -5,7 +5,9 @@ import { useState } from 'react';
 import { logout } from '../actions/usersActions';
 import Modal from '@mui/material/Modal';
 import { Button, Input } from '@mui/material';
-import { addPost } from '../actions/getPosts';
+import { addPost } from '../actions/postActions';
+import { useHistory } from 'react-router-dom';
+
 
 const style = {
   position: 'absolute',
@@ -21,18 +23,27 @@ const style = {
   padding: 25
 };
 
-function Header({addPost, user_id, logout}) {
+function Header({addPost, logout, photo}) {
   const [open, setOpen] = useState(false);
   const [caption, setCaption] = useState('')
   const[image, setImage] = useState('')
+  const history = useHistory();
 
   const createPost = (e) => {
-    e.preventDefault();
-    const newPost = {caption, image, user_id}
+    const newPost = {caption, image}
      addPost(newPost)
-     
-      
   }
+
+   const handleHomeButton = () => {
+     history.push("/posts")
+   }
+
+   const handleProfileButton = () => {
+     history.push('/profile')
+   }
+   const handleLogout = () => {
+     logout(history.push("/login"))
+   }
 
     return (
      <div className="app">
@@ -45,9 +56,10 @@ function Header({addPost, user_id, logout}) {
          
            <div className="navigation_icons">
              <div className="nav_row">
-               <button><img src="https://img.icons8.com/material-rounded/32/000000/home-page.png" alt="Home"/></button>
-               <button onClick={() => setOpen(true)}> <img src="https://img.icons8.com/ios-glyphs/32/000000/plus.png" alt="Add"/></button>
-               <button onClick={logout}><img src="https://img.icons8.com/windows/32/000000/logout-rounded.png" alt="Sign Out"/></button> 
+               <img src="https://img.icons8.com/material-rounded/32/000000/home-page.png" alt="Home" onClick={handleHomeButton}/>
+               <img src="https://img.icons8.com/ios-glyphs/32/000000/plus.png" alt="Add" onClick={() => setOpen(true)}/>
+               <img className="avatar_image" src={photo} alt="profile" onClick={handleProfileButton}/>
+               <img src="https://img.icons8.com/windows/32/000000/logout-rounded.png" alt="Sign Out" onClick={handleLogout}/>
             </div>
           </div>
       </div>
@@ -59,7 +71,7 @@ function Header({addPost, user_id, logout}) {
       <div style={style} >
         <form className="app_createPost" onSubmit={createPost}> 
           <center>
-            <img className="app__headerImage" src="https://instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" />
+            <img className="app__headerImage" src="https://instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt=""/>
           </center>
             <Input area-label="Enter your caption" type="text" placeholder="Caption" value={caption} onChange={(e) => setCaption(e.target.value)} />
             <Input area-aria-label='Place Your Image URL' type="text" placeholder="Image" value={image} onChange={(e) => setImage(e.target.value)}  />
@@ -72,7 +84,7 @@ function Header({addPost, user_id, logout}) {
     )
  }
 
- const mapStateToProps = state => ({user_id: state.users.user.id })
+ const mapStateToProps = state => ({username: state.users.user.username, photo: state.users.user.photo})
 //  (console.log(state.users.user.id))
 
 export default connect(mapStateToProps, {addPost, logout})(Header);

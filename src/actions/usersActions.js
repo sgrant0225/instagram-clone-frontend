@@ -5,6 +5,19 @@ export const getUsers = () => {
     .then(users => dispatch({ type: 'GET_USERS', payload: users}))
 }
 
+export const getAUser = (id) => {
+  return dispatch => fetch(`http://localhost:3000/users/${id}`, {
+  method: 'POST',
+  headers: {
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.token
+},
+   body: JSON.stringify(id), 
+ })
+    .then(res => res.json())
+    .then(user => console.log(user))
+}
+
 export const submitSignup = (user) => {
     return dispatch => fetch("http://127.0.0.1:3000/signup", {
     method: 'POST',
@@ -31,11 +44,8 @@ export const submitLogin = (user) => {
      },
      body: JSON.stringify(user),
   }) 
-  .then(res => res.json())
-  .then(response => {
-      localStorage.token = response.token
-      dispatch({type: "SET_USER", payload: response.user })
-  })
+  .then(res => handleUserResponse(res, dispatch))
+  
 }
 
 export const autoLogin = () => {
@@ -44,12 +54,10 @@ export const autoLogin = () => {
           'Authorization': localStorage.token
       }  
     })
-    .then(res => res.json())
-    .then(response => {
-        localStorage.token = response.token
-        dispatch({type: "SET_USER", payload: response.user})
-    })
+    .then(res => handleUserResponse(res, dispatch))
+    
 }
+
 
 export const logout = () => {
     return dispatch => {
@@ -58,22 +66,21 @@ export const logout = () => {
     }
 }
 
+function handleUserResponse(res, dispatch) {
+    if (res.ok){
+        res.json()
+        .then(response => {
+            localStorage.token = response.token
+            dispatch({type: "SET_USER", payload: response.user})
+        })
+    } else {
+        res.json()
+        .then(res => alert(res.errors))
+    }
+}
 
 
 
 
 
-// function handleUserResponse(response, dispatch) {
-//     console.log(response)
-//     console.log(dispatch)
-//     // if (response.ok) {
-//     //     response.json()
-//     //     .then(res => {
-//     //         dispatch({type: "SET_USER", payload: res.user})
-//     //     })
-//     // } else {
-//     //     response.json()
-//     //     .then(response => alert(response.errors))
-//     // }
-// }
 

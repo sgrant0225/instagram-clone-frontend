@@ -24,8 +24,10 @@ const App = ({user, autoLogin}) => {
          <Route path='/posts'><PostFeed /></Route>
          <Route path="/profile"><ProfilePage /></Route>
       </Switch> :
-      <LoginPage />
-     }
+       <Route path='/login'><LoginPage /></Route>
+       
+      }
+      <Route path='/signup'><SignUpForm /></Route>
      </>  
     );
   

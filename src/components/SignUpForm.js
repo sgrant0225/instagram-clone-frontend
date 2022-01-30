@@ -60,9 +60,10 @@ function SignUpForm(props){
   
      <div className="sub-content">
       <div className="s-part">
-        Have an account? <Link to="/login"> 
-        Log In
-        </Link>
+        Have an account? 
+        <Link to="/login"> 
+          Log In
+       </Link>
       </div>
      </div> 
               

@@ -15,6 +15,7 @@ export const postsReducer = (state=initialState, action) => {
         case 'GET_POSTS':
             return {...state, posts: action.payload}
         case 'ADD_POST':
+            // debugger
             return {...state, setPost: initialPost, posts:[ action.payload, ...state.posts] }
             default:
                 return {...state}
