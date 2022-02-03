@@ -1,4 +1,3 @@
-
 export const getUsers = () => {
     return dispatch => fetch("http://localhost:3000/users")
     .then(res => res.json())
@@ -58,13 +57,57 @@ export const autoLogin = () => {
     
 }
 
-
 export const logout = () => {
     return dispatch => {
         localStorage.clear()
         dispatch({type: "LOGOUT"})
     }
 }
+
+
+export const getPosts = () => {
+    return dispatch => fetch("http://localhost:3000/posts")
+      .then(res => res.json())
+      .then(posts => dispatch({ type: 'GET_POSTS', payload: posts}))
+  }
+  
+  export const addPost = (post) => {
+     return dispatch => fetch("http://localhost:3000/posts", {
+       method: "POST",
+       headers: {
+         'Content-Type': 'application/json',
+         'Authorization': localStorage.token
+       },
+       body: JSON.stringify(post)
+     })
+     .then(res => res.json())
+     .then(post => {
+       dispatch({type: "ADD_POST", payload: post})
+     })
+  }
+  
+  
+  //unable to fetch because the postId is null
+  export const addComment = (comment) => {
+    return dispatch => fetch(`http://localhost:3000/comments`, {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.token
+      },
+      body: JSON.stringify(comment)
+    })
+     .then(response => response.json())
+     .then(comment => {
+       dispatch({type: "ADD_COMMENT", payload: comment})
+     })
+  }
+
+
+
+
+
+
 
 function handleUserResponse(res, dispatch) {
     if (res.ok){
@@ -78,9 +121,3 @@ function handleUserResponse(res, dispatch) {
         .then(res => alert(res.errors))
     }
 }
-
-
-
-
-
-

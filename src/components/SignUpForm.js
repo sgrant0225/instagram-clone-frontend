@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {useState, useEffect} from 'react';
-import { submitSignup } from '../actions/usersActions'
+import { submitSignup } from '../actions/actionCreators'
 
 function SignUpForm(props){
   
@@ -13,7 +13,7 @@ function SignUpForm(props){
     const [password, setPassword] = useState("") 
     const [bio, setBio] = useState("")
     const [photo, setPhoto] = useState("")
-    const [error, setError] = useState("") 
+   
     //const isInvalid = password === '' || username === ''
   
     useEffect(() => {
@@ -22,7 +22,7 @@ function SignUpForm(props){
   
     const handleSubmit = (e) => {
         e.preventDefault()
-        props.submitSignup({ email, username, password, bio, photo })
+        props.submitSignup({ username, email, password, bio, photo })
         history.push("/posts")
         
     }

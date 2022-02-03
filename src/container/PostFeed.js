@@ -4,10 +4,10 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getPosts } from '../actions/postActions';
-//import { useEffect } from 'react'
+import { getPosts } from '../actions/actionCreators';
 import PostCard from '../components/PostCard'
  import Header from '../components/Header'
+
 
 // function PostFeed({getPosts, posts}) {
     
@@ -23,7 +23,6 @@ import PostCard from '../components/PostCard'
 
 class PostFeed extends Component {
      componentDidMount() {
-        console.log(this.props)
         this.props.getPosts();
     }
 
@@ -32,8 +31,9 @@ class PostFeed extends Component {
     // }
       render() {
         
-        console.log(this.props)
-        const renderPosts = this.props.posts.posts.map((post) => <PostCard key={post.id} image={post.image} caption={post.caption} username={post.user.username} user_id={post.user.id} />)
+        console.log(this.props.posts)
+        const renderPosts = this.props.posts.map((post) => 
+        <PostCard key={post.id} image={post.image} caption={post.caption} username={post.user.username} photo={post.user.photo} PostId={post.id}/>)
        return (
         <div> 
              <h4>
@@ -51,10 +51,6 @@ class PostFeed extends Component {
 // ))
 
 
-const mapStateToProps = (state) => {
-  return {
-    posts: state.posts
-    
-  }
-}
+const mapStateToProps = (state) => ({posts: state.posts})
+
 export default connect(mapStateToProps, { getPosts} )(PostFeed);

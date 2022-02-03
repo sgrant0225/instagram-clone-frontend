@@ -6,20 +6,20 @@ import { Switch, Route } from 'react-router-dom'
 import LoginPage from './LoginPage';
 import SignUpForm from './SignUpForm';
 import ProfilePage from './ProfilePage';
-import { autoLogin } from '../actions/usersActions'
-import NavBar from './NavBar';
+import { autoLogin } from '../actions/actionCreators'
+
 
 
 
 const App = ({user, autoLogin}) => {
   useEffect(() => localStorage.token && autoLogin(), [autoLogin])
   
-  console.log(user.user.username)
+  console.log(user.username)
   
     return (
       <>
       
-      { user.user.username ?
+      { user.username ?
       <Switch>
          <Route path='/posts'><PostFeed /></Route>
          <Route path="/profile"><ProfilePage /></Route>
@@ -33,7 +33,8 @@ const App = ({user, autoLogin}) => {
   
 }
 
-const mapStateToProps = (state) => ({user: state.users})
+const mapStateToProps = (state) => ({user: state.user})
 
 
 export default connect(mapStateToProps, { autoLogin } )(App);
+

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import {useState, useEffect} from 'react';
 import { connect } from 'react-redux'
-import { submitLogin } from '../actions/usersActions'
+import { submitLogin } from '../actions/actionCreators'
 
 function LoginPage(props){
   

@@ -1,7 +1,7 @@
 
 import Header from './Header';
 import { connect } from 'react-redux';
-import { getAUser } from '../actions/usersActions';
+import { getAUser } from '../actions/actionCreators';
 import {  Avatar } from '@mui/material';
 import PhotoGrid from './PhotoGrid';
 
@@ -30,6 +30,6 @@ const ProfilePage = ({username, email, bio, photo, posts}) => {
   )
 }
 
-const mapStateToProps = (state) => ({ username: state.users.user.username, email: state.users.user.email, bio: state.users.user.bio, photo: state.users.user.photo, posts: state.users.user.posts})
+const mapStateToProps = (state) => ({ username: state.user.username, email: state.user.email, bio: state.user.bio, photo: state.user.photo, posts: state.user.posts})
 
 export default connect(mapStateToProps, { getAUser })(ProfilePage);

@@ -2,10 +2,9 @@ import React from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
 import { useState } from 'react';
-import { logout } from '../actions/usersActions';
 import Modal from '@mui/material/Modal';
 import { Button, Input } from '@mui/material';
-import { addPost } from '../actions/postActions';
+import { addPost, logout } from '../actions/actionCreators';
 import { useHistory } from 'react-router-dom';
 
 
@@ -30,8 +29,9 @@ function Header({addPost, logout, photo}) {
   const history = useHistory();
 
   const createPost = (e) => {
+    e.preventDefault();
     const newPost = {caption, image}
-     addPost(newPost)
+    addPost(newPost)
   }
 
    const handleHomeButton = () => {
@@ -84,7 +84,7 @@ function Header({addPost, logout, photo}) {
     )
  }
 
- const mapStateToProps = state => ({username: state.users.user.username, photo: state.users.user.photo})
+ const mapStateToProps = state => ({username: state.user.username, photo: state.user.photo})
 //  (console.log(state.users.user.id))
 
 export default connect(mapStateToProps, {addPost, logout})(Header);
