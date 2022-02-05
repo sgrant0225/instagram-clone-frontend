@@ -71,7 +71,14 @@ export const getPosts = () => {
       .then(posts => dispatch({ type: 'GET_POSTS', payload: posts}))
   }
   
-  export const addPost = (post) => {
+
+  export const getPost = (id) => {
+    return dispatch => fetch(`http://localhost:3000/posts/${id}`)
+      .then(res => res.json())
+      .then(post => dispatch({ type: 'GET_POST', payload: post}))
+  }
+
+  export const addPost = post => {
      return dispatch => fetch("http://localhost:3000/posts", {
        method: "POST",
        headers: {
@@ -88,18 +95,21 @@ export const getPosts = () => {
   
   
   //unable to fetch because the postId is null
-  export const addComment = (comment) => {
-    return dispatch => fetch(`http://localhost:3000/comments`, {
+  export const addComment = (text, post_id) => {
+    
+     console.log(text)
+     console.log(post_id)
+    return dispatch => fetch(`http://localhost:3000/posts/${post_id}/comments`, {
       method: 'POST', 
       headers: {
         'Content-Type': 'application/json',
         'Authorization': localStorage.token
       },
-      body: JSON.stringify(comment)
+      body: JSON.stringify(text)
     })
      .then(response => response.json())
-     .then(comment => {
-       dispatch({type: "ADD_COMMENT", payload: comment})
+     .then(text => { console.log(text)
+       dispatch({type: "ADD_COMMENT", payload: text})
      })
   }
 

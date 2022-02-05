@@ -30,6 +30,9 @@
     margin-right: 10px;
 }
 
+.post_heart {
+    padding: 10px
+}
 .post_commentBox{
     display: flex;
     margin-top: 10px;
@@ -56,3 +59,7 @@
     border-top: 1px solid lightgray;
     
 }
+
+.post_comments {
+    padding: 10px;
+  }

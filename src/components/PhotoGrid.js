@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import '../Profile.css'
 
 const PhotoGrid = (props) => {
-    console.log(props.obj.image)
+    console.log(props)
    return (
        <div className="profile_wrapper">
            <div className="profile_column">

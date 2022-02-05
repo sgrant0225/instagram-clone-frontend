@@ -1,6 +1,9 @@
-function CommentCard({ commenter, comment}){
-    return <div className="comment">
-     <p> <strong>{commenter}</strong> {comment} </p> 
+import React from "react";
+
+function CommentCard({ username, text }){
+    console.log(text)
+    return <div className="post_comments">
+     <p> <strong>{username}</strong> says: {text} </p> 
     </div>
 
 }

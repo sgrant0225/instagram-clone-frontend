@@ -6,8 +6,8 @@ import {  Avatar } from '@mui/material';
 import PhotoGrid from './PhotoGrid';
 
 
-const ProfilePage = ({username, email, bio, photo, posts}) => {
-
+const ProfilePage = ({username, bio, photo, posts}) => {
+   console.log(username)
     return (
     <div> 
         <Header />
@@ -20,7 +20,6 @@ const ProfilePage = ({username, email, bio, photo, posts}) => {
          />
            <h2>{username}</h2> 
       </div>
-        <p>{email}</p>
         <p>{bio}</p>
     </div>
     <div>
@@ -30,6 +29,6 @@ const ProfilePage = ({username, email, bio, photo, posts}) => {
   )
 }
 
-const mapStateToProps = (state) => ({ username: state.user.username, email: state.user.email, bio: state.user.bio, photo: state.user.photo, posts: state.user.posts})
+const mapStateToProps = (state) => ({ username: state.user.username, bio: state.user.bio, photo: state.user.photo, posts: state.user.posts})
 
 export default connect(mapStateToProps, { getAUser })(ProfilePage);

@@ -1,19 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { CommentCard } from '../components/CommentCard'
+import CommentCard from '../components/CommentCard'
+import { addComment } from '../actions/actionCreators'
 
+function Comments({addComment, posts}) {
 
-function Comments({posts}) {
-  
-  
+  // useEffect(() => { addComment() }, [addComment])
 
-  return  <div className="all_comments">
-        {posts.map(post => <CommentCard commenter={post.comments.username} comment={post.comments.text} key={post.comments.id} />)}
+  console.log(posts)
+   return  <div>
+      {posts.map(comment => <CommentCard {...comment } key={comment.id} />)}
+       
     </div>
     
 }
 
 
-const mapStateToProps = (state) => ({posts: state.posts})
+const mapStateToProps = (state) => {
+  console.log(state)
+ return {posts: state.setPost.comments}
+}
 
-export default connect(mapStateToProps )(Comments);
+  
+  
+
+export default connect(mapStateToProps, {addComment} )(Comments);
