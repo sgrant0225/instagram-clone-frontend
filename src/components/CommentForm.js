@@ -15,8 +15,6 @@ function CommentForm({ addComment, postId}) {
     }
 
     
-    console.log(postId)
-    
  return (
     <div> 
       <form className="post_commentBox">

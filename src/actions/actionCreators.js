@@ -108,11 +108,21 @@ export const getPosts = () => {
       body: JSON.stringify(text)
     })
      .then(response => response.json())
-     .then(text => { console.log(text)
+     .then(text => { 
        dispatch({type: "ADD_COMMENT", payload: text})
      })
   }
 
+  export const deletePost = (post_id) => {
+    //debugger
+    return dispatch => fetch(`http://localhost:3000/posts/${post_id}`, {
+      method: 'DELETE', 
+      headers: {
+        'Content_Type': 'application/json',
+      }, 
+    }) 
+      .then(() => dispatch({type: "DELETE_POST"}))
+  }
 
 
 

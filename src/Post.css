@@ -3,6 +3,7 @@
 } 
 
 .post {
+    
     background-color: #fff;
     max-width: 500px;
     border: 1px solid lightgray;
@@ -61,5 +62,5 @@
 }
 
 .post_comments {
-    padding: 10px;
+    padding: 20px;
   }

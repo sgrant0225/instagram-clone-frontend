@@ -8,16 +8,12 @@ import SignUpForm from './SignUpForm';
 import ProfilePage from './ProfilePage';
 import { autoLogin } from '../actions/actionCreators'
 import PostShow from './PostShow';
-import Comments from '../container/Comments';
-// import Comments from '../container/Comments';
-
 
 
 
 const App = ({user, autoLogin}) => {
   useEffect(() => localStorage.token && autoLogin(), [autoLogin])
   
-  console.log(user.username)
   
     return (
       <>
@@ -29,14 +25,12 @@ const App = ({user, autoLogin}) => {
          <Route path='/posts'><PostFeed /></Route>
          <Route path="/profile"><ProfilePage /></Route>
       </Switch> :
-       <Route path='/login'><LoginPage /></Route>
-       
+         <Route path='/login'><LoginPage /></Route>
       }
       <Route path='/signup'><SignUpForm /></Route>
      </>  
     );
-  
-}
+  }
 
 const mapStateToProps = (state) => ({user: state.user})
 

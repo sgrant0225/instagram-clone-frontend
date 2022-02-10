@@ -6,7 +6,7 @@ const initialPost = {
   image: "",
   likes: null,
   id: null,
-  comments: []
+ 
   
 }
 
@@ -20,6 +20,7 @@ const initialUser = {
 
 const initialState = {
   posts: [],
+  comments: [],
   setPost: initialPost,
   user: initialUser
 }
@@ -41,8 +42,10 @@ export function rootReducer(state=initialState, action){
      case "ADD_POST":
         return {...state, setPost: initialPost, posts:[ action.payload, ...state.posts] }
     case 'ADD_COMMENT':
-      return {...state, setPost: {...state.setPost, comments: [ action.payload, ...state.setPost.comments] }}         
-    default:
+      return {...state, setPost: initialPost, comments: [ action.payload, ...state.comments] }   
+    case 'DELETE_POST':
+       return {...state, setPost: initialPost}      
+    default: 
       return {...state }
   }
 }

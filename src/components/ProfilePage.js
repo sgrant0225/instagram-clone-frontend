@@ -6,8 +6,7 @@ import {  Avatar } from '@mui/material';
 import PhotoGrid from './PhotoGrid';
 
 
-const ProfilePage = ({username, bio, photo, posts}) => {
-   console.log(username)
+const ProfilePage = ({username, bio, photo, posts, }) => {
     return (
     <div> 
         <Header />
@@ -22,9 +21,9 @@ const ProfilePage = ({username, bio, photo, posts}) => {
       </div>
         <p>{bio}</p>
     </div>
-    <div>
-     {posts.map((post, i) => <PhotoGrid obj={post} key={i}/>)}
-     </div>
+    <>
+     {posts.map((post, i) => <PhotoGrid obj={post} key={i} username={username} />)}
+     </>
   </div>
   )
 }

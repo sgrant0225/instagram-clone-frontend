@@ -1,27 +1,26 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import CommentCard from '../components/CommentCard'
-import { addComment } from '../actions/actionCreators'
+import { getPosts } from '../actions/actionCreators'
+import PhotoGrid from '../components/PhotoGrid'
 
-function Comments({addComment, posts}) {
+function Comments({getPosts, posts }) {
 
-  // useEffect(() => { addComment() }, [addComment])
-
-  console.log(posts)
+  useEffect(() => { getPosts() }, [getPosts])
    return  <div>
-      {posts.map(comment => <CommentCard {...comment } key={comment.id} />)}
-       
+      {posts.map(comment => <PhotoGrid postId={comment.id} comments={comment.comments} key={comment.id}  />)}
     </div>
     
 }
 
 
+
 const mapStateToProps = (state) => {
   console.log(state)
- return {posts: state.setPost.comments}
+ return {posts: state.posts}
 }
 
   
   
 
-export default connect(mapStateToProps, {addComment} )(Comments);
+export default connect(mapStateToProps, {getPosts} )(Comments);
