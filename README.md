@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# Getting Started with Instagram Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Instagram Clone is a simple web application that allows you to experience simualation of the real Instagram application. You can view posts, create a post, comment on posts, have access to a profile page and more
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+The backend repository uses Rails and can be found at https://github.com/sgrant0225/instagram-clone-backend After cloning both frontent and backend repositories, it is suggested that you run the backend first with the follwing commands:
 
+```
+bundle install
+rake db:migrate
+rake db:seed
+rails s
+```
+
+On the frontend repo, run the command:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:3000/login](http://localhost:3000/login) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This will bring up the login page.  If you are new to Instagram Clone and do not have an account please select the sign up link on the login page. Once you have signed up it will bring you to the https://localhost3000/posts this where you can view all post created on this app.  You can like a post, leave a comment on the post, you can select the + plus symbol to create a post, you can select your avatar picture located on the navagation bar to take you to your profile page to see all the post you have created. on you Profile page you can click an image ad modal will appear for to view and delete your posts.  Once you finished using the app you select the exit icon to sign out. 
 
-### `npm test`
+## Features for future Versions
+```
+. Edit your profile page
+. Edit a Post
+. Add videos
+. Create a file picker so you can upload files using local computer
+. Add Followers
+. Send Posts to another follower
+```
+## Contributing
+Bug reports and pull request are welcome on Github at https://github.com/sgrant0225/instagram-clone-frontend. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+The gem is available as open source under the terms of the MIT License.
