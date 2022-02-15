@@ -32,6 +32,7 @@ function Header({addPost, logout, photo}) {
     e.preventDefault();
     const newPost = {caption, image}
     addPost(newPost)
+     newPost("")
   }
 
    const handleHomeButton = () => {

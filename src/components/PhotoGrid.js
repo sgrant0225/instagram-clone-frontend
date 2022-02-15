@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { useState } from 'react';
 import { Modal } from '@mui/material';
 import '../Profile.css'
-import PostShow from './PostShow';
-import CommentCard from './CommentCard';
 import { deletePost } from '../actions/actionCreators';
 
 
@@ -25,7 +23,6 @@ const style = {
 
 
 function PhotoGrid(props, deletePost){
-  console.log(props.obj)
     const [open, setOpen] = useState(false);
     
 

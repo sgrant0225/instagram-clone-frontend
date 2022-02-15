@@ -1,27 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import Post from './Post';
+import Header from './Header';
 import { getPost } from '../actions/actionCreators';
-import CommentCard from './CommentCard';
-import PhotoGrid from './PhotoGrid';
+import { useParams } from 'react-router-dom';
 
-
-
-
-
-function PostShow({getPost, post_comments }){
-  console.log(post_comments)
+function PostShow({getPost, posts}){
+  //debugger
   const routeId = useParams().id
     useEffect(() => {
-        getPost(routeId)
-    }, [getPost, routeId]) 
-    
+     getPost(routeId)
+    }, [getPost, routeId])  
+  
+  // const showPost = posts.map((p) => <Post {...posts} /> )
+
      return (
       <div>  
-          {post_comments.map((comment) => <CommentCard username={comment.username}  text={comment.text} key={comment.id}/>)}
+        <Header />
+          {<Post {...posts} key={posts.id}/>}
       </div>
+      
      )
+    
 }
- const mapStateToProps = (state) => ({post_comments: state.setPost.comments})
+ const mapStateToProps = (state) => {
+    console.log(state.setPost)
+   return {posts: state.setPost }
+ }
+  
 
-export default connect(mapStateToProps, { getPost } )(PostShow);
+export default connect(mapStateToProps, {getPost} )(PostShow);

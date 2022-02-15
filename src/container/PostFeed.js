@@ -8,7 +8,6 @@ function PostFeed({getPosts, posts}) {
     
    useEffect(() => { getPosts() }, [getPosts])
         
-    console.log(posts)
     const renderPosts = posts.map((post) => <PostCard key={post.id} image={post.image} caption={post.caption} likes={post.likes} username={post.username} photo={post.photo} postId={post.id} comments={post.comments}  />)
         return (
         <div>
@@ -20,6 +19,12 @@ function PostFeed({getPosts, posts}) {
         </div>
         )
       }
+   const mapStateToProps = (state) => {
+      return {posts: state.posts}
+       }
+       
+export default connect(mapStateToProps, { getPosts} )(PostFeed);
+
 
 // class PostFeed extends Component {
 //      componentDidMount() {
@@ -44,9 +49,3 @@ function PostFeed({getPosts, posts}) {
     
 // }
 
-const mapStateToProps = (state) => {
-   
-  return {posts: state.posts}
-}
-
-export default connect(mapStateToProps, { getPosts} )(PostFeed);

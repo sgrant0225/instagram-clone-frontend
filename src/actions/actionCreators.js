@@ -94,7 +94,7 @@ export const getPosts = () => {
   }
   
   
-  //unable to fetch because the postId is null
+ 
   export const addComment = (text, post_id) => {
     
      console.log(text)

@@ -33,40 +33,41 @@ function PostCard({image, caption, username, photo, postId, likes, comments}) {
     const handleClick = () => {
       setLike (like + 1);
       setIsClicked((isClicked) => !isClicked);
+      
     }
      const color = isClicked ? "red" : "white";
 
  
     return (
-    
+      <center>
         <div className="post">
           <div className="post_header">
-            <Avatar className="post_avatar" alt="" src={photo} />
-              <h3>{username}</h3>
+             <Avatar className="post_avatar" alt="" src={photo} />
+               <h3>{username}</h3>
             </div>
              <div>
                 <img className="post_image" src={image} alt="" onClick={() => setOpen(true)}/>
-                <p>  <img className= "post_heart" style={{ color }}src="https://img.icons8.com/windows/32/000000/like--v1.png" alt="" onClick={handleClick} /> {like + likes} likes </p>
+                <p className= "post_heart"><img style={{ color }}src="https://img.icons8.com/windows/32/000000/like--v1.png" alt="" onClick={handleClick} /> {like + likes} likes </p>
                 <h4 className="post_text"><strong>{username}</strong> { caption } </h4>
              </div>
              <div className="post_comments">  
-              {comments.map((comment) =>
-                <p> <strong> {comment.username} </strong> says: {comment.text} </p>
+               {comments.map((comment) =>
+                 <p><strong> {comment.username}</strong> says: {comment.text}</p>
               )}
              </div>
                <CommentForm postId={postId} /> 
 
           <Modal open={open} onClose={() => setOpen(false)}>
             <div style={style} >
-             <center>
+              <center>
               <h4>{username}</h4>
-             <Link to={`/posts/${postId}`}> <img className="post_image" src={image} alt=""  /></Link>
-            </center>
-          </div>
-       </Modal>
+              <Link to={`/posts/${postId}`}> <img className="post_image" src={image} alt=""  /></Link>
+             </center>
+            </div>
+          </Modal>
                
         </div>
-
+    </center> 
 
     )
 }
