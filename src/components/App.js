@@ -21,7 +21,7 @@ const App = ({user, autoLogin}) => {
       { user.username ?
       
       <Switch>
-         <Route path='/posts/:id'><PostShow /></Route>
+         <Route path='/posts/:id'><PostShow /></Route>  #When using Route it is saying to match the specific path and render that component
          <Route path='/posts'><PostFeed /></Route>
          <Route path="/profile"><ProfilePage /></Route>
       </Switch> :

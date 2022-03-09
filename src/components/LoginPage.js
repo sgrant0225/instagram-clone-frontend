@@ -10,8 +10,8 @@ function LoginPage(props){
   const history = useHistory();
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("") 
-  const [error, setError] = useState("") 
-  //const isInvalid = password === '' || username === ''
+  
+  
 
   useEffect(() => {
       document.title = 'Login - Instagram'

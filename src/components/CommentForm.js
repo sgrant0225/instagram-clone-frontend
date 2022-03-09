@@ -5,15 +5,16 @@ import { useState } from 'react'
 import '../Post.css';
 
 function CommentForm({ addComment, postId}) {
-   const [text, setText] = useState("")
+   const [text, setText] = useState("") 
 
     const postComment = (e) => {
         e.preventDefault();
         const newComment = {text}
        addComment(newComment, postId)
-        setText("")
-    }
-
+        setText("") 
+        window.location.reload(false);
+   }
+ 
     
  return (
     <div> 
@@ -26,6 +27,6 @@ function CommentForm({ addComment, postId}) {
    )
 }
 
-// const mapStateToProps = (state) => ({})
+
 
 export default connect(null, {addComment} )(CommentForm);

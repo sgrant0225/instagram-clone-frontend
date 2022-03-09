@@ -1,3 +1,5 @@
+
+
 export const getUsers = () => {
     return dispatch => fetch("http://localhost:3000/users")
     .then(res => res.json())
@@ -35,7 +37,6 @@ export const submitSignup = (user) => {
 
 
 export const submitLogin = (user) => {
-    console.log(user)
      return dispatch => fetch("http://localhost:3000/login", { 
      method: 'POST',
      headers: {
@@ -124,7 +125,11 @@ export const getPosts = () => {
       .then(() => dispatch({type: "DELETE_POST"}))
   }
 
-
+  // export const incrementLike = (like) => {
+  //   return dispatch => {
+  //     dispatch({type: "INCREMENT_LIKE", payload: like + 1})
+  //   }
+  // }
 
 
 
@@ -141,3 +146,4 @@ function handleUserResponse(res, dispatch) {
         .then(res => alert(res.errors))
     }
 }
+

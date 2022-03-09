@@ -6,7 +6,6 @@ import { getPost } from '../actions/actionCreators';
 import { useParams } from 'react-router-dom';
 
 function PostShow({getPost, posts}){
-  //debugger
   const routeId = useParams().id
     useEffect(() => {
      getPost(routeId)
@@ -17,7 +16,7 @@ function PostShow({getPost, posts}){
      return (
       <div>  
         <Header />
-          {<Post {...posts} key={posts.id}/>}
+          {<Post {...posts} comments={posts.comments} key={posts.id}/>}
       </div>
       
      )

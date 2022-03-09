@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Modal } from '@mui/material';
 import '../Profile.css'
 import { deletePost } from '../actions/actionCreators';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 const style = {
@@ -29,9 +30,10 @@ function PhotoGrid(props, deletePost){
     const handleClick = (e) => {
       e.preventDefault();
       const postId = props.obj.id
-      console.log("delete button is clicked")
-      //const newObj = props.obj.filter((post) => post.id !== postId)
+     //const newObj = props.obj.filter((post) => post.id !== postId)
       props.deletePost(postId)
+      window.location.reload(false);
+
     }
 
 

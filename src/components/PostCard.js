@@ -5,8 +5,7 @@ import '../Post.css';
 import {  Avatar } from '@mui/material';
 import CommentForm from './CommentForm';
 import { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-//import InstagramEmbed from 'react-instagram-embed'; 
+import { Link } from 'react-router-dom';
 import Modal from '@mui/material/Modal';
 
 
