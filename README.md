@@ -14,7 +14,7 @@ rails s
 ```
 
 On the frontend repo, run the command:
-### `npm start`
+### `npm install` then run `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000/login](http://localhost:3000/login) to view it in your browser.
